@@ -1,0 +1,83 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>add-content</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <ion-item *ngIf="message">
+    <ion-label>
+      {{message}}
+    </ion-label>
+  </ion-item>
+
+
+
+  <ion-grid *ngIf="contents?.length>0">
+    <ion-row>
+      <ion-col>
+        <div>
+          ID
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          Content
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          Delete Content
+        </div>
+      </ion-col>
+     
+    </ion-row>
+    <ion-row *ngFor="let content of contents">
+      <ion-col>
+        <div>
+          {{content.tcid}}
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          {{content.content}}
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+         <ion-button (click)="deleteContent(content.tcid)" expand="block" fill="clear" shape="round">
+           Delete Content
+         </ion-button>
+        </div>
+      </ion-col>
+     
+    </ion-row>
+  </ion-grid>
+
+<form [formGroup]="insertForm" (ngSubmit)="submitForm(insertForm.value)">
+  <ion-item>
+    <ion-label position="floating">Course ID<ion-text color="danger">*</ion-text></ion-label>
+    <ion-input required formControlName="cid" type="text"></ion-input>
+  </ion-item>
+
+  
+  <ion-item>
+    <ion-label position="floating">Teacher ID<ion-text color="danger">*</ion-text></ion-label>
+    <ion-input required formControlName="tid" type="text"></ion-input>
+  </ion-item>
+
+
+  <ion-item>
+    <ion-label position="floating">Content<ion-text color="danger">*</ion-text></ion-label>
+    <ion-input required formControlName="content" type="textarea"></ion-input>
+  </ion-item>
+
+
+  <ion-button block color="primary" type="submit" [disabled]="insertForm.invalid">
+    Add Content
+  </ion-button>
+</form>
+
+</ion-content>

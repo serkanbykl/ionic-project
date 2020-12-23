@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<form [formGroup]="valForm" (ngSubmit)="submitForm(valForm.value)">
+  <ion-item>
+    <ion-label position="floating">Username <ion-text color="danger">*</ion-text></ion-label>
+    <ion-input required formControlName="username" type="text"></ion-input>
+    <ion-label class="text-danger" *ngIf="valForm.controls['username'].hasError('required') && (valForm.controls['username'].dirty || valForm.controls['username'].touched)">This field is required</ion-label>
+
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Password <ion-text color="danger">*</ion-text></ion-label>
+    <ion-input required formControlName="password" type="password"></ion-input>
+  </ion-item>
+
+
+  <ion-item>
+    <ion-label position="floating">Name <ion-text color="danger">*</ion-text></ion-label>
+    <ion-input required formControlName="name" type="text"></ion-input>
+  </ion-item>
+
+
+  <ion-item>
+    <ion-label position="floating">Education Detail <ion-text color="danger">*</ion-text></ion-label>
+    <ion-input required formControlName="educationDetail" type="text"></ion-input>
+  </ion-item>
+
+
+  <ion-item>
+    <ion-label position="floating">Persona Detail <ion-text color="danger">*</ion-text></ion-label>
+    <ion-input required formControlName="personalDetail" type="text"></ion-input>
+  </ion-item>
+
+
+
+  <ion-button block color="primary" type="submit" [disabled]="valForm.invalid">
+    Login
+  </ion-button>
+</form>
+</ion-content>

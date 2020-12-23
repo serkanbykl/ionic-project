@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>add-teacher</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <form [formGroup]="insertForm" (ngSubmit)="submitForm($event, insertForm.value)">
+    <ion-item>
+      <ion-label position="floating">Username<ion-text color="danger">*</ion-text></ion-label>
+      <ion-input required formControlName="username" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Password <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input required formControlName="password" type="password"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Name<ion-text color="danger">*</ion-text></ion-label>
+      <ion-input required formControlName="name" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Education Detail<ion-text color="danger">*</ion-text></ion-label>
+      <ion-input required formControlName="educationDetail" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Personal Detail<ion-text color="danger">*</ion-text></ion-label>
+      <ion-input required formControlName="personalDetail" type="text"></ion-input>
+    </ion-item>
+
+
+    <ion-button block color="primary" type="submit" [disabled]="insertForm.invalid">
+      Add Teacher
+    </ion-button>
+  </form>
+  {{error}}
+  {{message}}
+  
+</ion-content>

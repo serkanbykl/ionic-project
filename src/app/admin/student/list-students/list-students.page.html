@@ -1,0 +1,86 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>list-students</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+
+
+  
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div>
+          ID
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          Username
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          Name
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          Education Detail
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          Personal Detail
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          Student Detail
+        </div>
+      </ion-col>
+
+    </ion-row>
+    <ion-row *ngFor="let student of students">
+      <ion-col>
+        <div>
+          {{ student.id }}
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          {{ student.normalizedUserName }}
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          {{ student.name }}
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          {{ student.educationDetail }}
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          {{ student.personalDetail }}
+        </div>
+      </ion-col>
+      <ion-col>
+        <ion-router-link color="tertiary" href="admin/student/{{student.id}}">Detail</ion-router-link>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+
+
+
+
+
+
+</ion-content>

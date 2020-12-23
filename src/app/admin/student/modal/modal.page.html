@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-title>my-modal</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <form [formGroup]="updateForm" (ngSubmit)="onUpdate($event, updateForm.value)">
+      <ion-input class="ion-hide" required readonly formControlName="scid" type="number"></ion-input>
+      <ion-input class="ion-hide" required readonly formControlName="cid" type="number"></ion-input>
+      <ion-input class="ion-hide" required readonly formControlName="sid" type="number"></ion-input>
+
+    <ion-item>
+      <ion-label position="floating">New Fees <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input required formControlName="fees" type="number"></ion-input>
+    </ion-item>
+    <ion-button block color="primary" type="submit" [disabled]="updateForm.invalid">
+      Update
+    </ion-button>
+
+    <ion-row>
+      <ion-col text-center>
+        <ion-button (click)="closeModal()">Kapat</ion-button>
+      </ion-col>
+    </ion-row>
+
+  </form>
+  {{feesMessage}}
+
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "vedubox",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

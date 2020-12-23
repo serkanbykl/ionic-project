@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>content-course</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div>
+          contents
+        </div>
+      </ion-col>
+      </ion-row>
+      <ion-row *ngFor="let content of contents">
+        <ion-col>
+          <div>
+            {{content.content}}
+          </div>
+        </ion-col>
+        </ion-row>
+      </ion-grid>
+      
+</ion-content>

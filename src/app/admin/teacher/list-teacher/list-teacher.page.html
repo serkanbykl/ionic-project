@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>list-teacher</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  
+
+  
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div>
+          ID
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          Username
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          Name
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          Education Detail
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          Personal Detail
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          Teacher Detail
+        </div>
+      </ion-col>
+
+    </ion-row>
+    <ion-row *ngFor="let teacher of teachers">
+      <ion-col>
+        <div>
+          {{ teacher.id }}
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          {{ teacher.normalizedUserName }}
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          {{ teacher.name }}
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          {{ teacher.educationDetail }}
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          {{ teacher.personalDetail }}
+        </div>
+      </ion-col>
+      <ion-col>
+        <ion-router-link color="tertiary" href="admin/teacher/{{teacher.id}}">Detail</ion-router-link>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+
+
+
+
+
+</ion-content>

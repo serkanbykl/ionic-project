@@ -1,0 +1,129 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>detail-course</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <form [formGroup]="updateForm" (ngSubmit)="onUpdate($event, updateForm.value)">
+      <ion-input class="ion-hide" required readonly formControlName="cid" type="text"></ion-input>
+
+    <ion-item>
+      <ion-label position="floating">Course Name <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input required formControlName="cName" type="text"></ion-input>
+    </ion-item>
+
+
+    <ion-list>
+      <ion-item>
+        <ion-label>Choose a Teacher:</ion-label>
+        <ion-select formControlName="tid">
+          <ion-select-option *ngFor="let teacher of teachers" value="{{teacher.id}}">{{teacher.name}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+
+    <ion-item>
+      <ion-label position="floating">Fees<ion-text color="danger">*</ion-text></ion-label>
+      <ion-input required formControlName="fees" type="number"></ion-input>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-item>
+        <ion-label>Duration</ion-label>
+        <ion-datetime required formControlName="duration" display-format="DD.MM.YYYY" min="2019" max="2050"></ion-datetime>
+      </ion-item>
+    </ion-item>
+
+
+
+    <ion-button block color="primary" type="submit" [disabled]="updateForm.invalid">
+      Update
+    </ion-button>
+
+    {{upMessage}}
+  </form>
+
+
+  <form [formGroup]="deleteForm" (ngSubmit)="onDelete(deleteForm.value)">
+    <ion-input class="ion-hide" required readonly formControlName="cid" type="text"></ion-input>
+
+<ion-item>
+  <ion-label>Confirm</ion-label>
+  <ion-checkbox formControlName="check" id="check" color="Royal"></ion-checkbox>
+
+</ion-item>
+
+
+
+    <ion-button block color="primary" type="submit" [disabled]="deleteForm.invalid">
+      Delete
+    </ion-button>
+  </form>
+
+  {{delMessage}}
+
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div>
+          Contents
+        </div>
+      </ion-col>
+
+      </ion-row>
+
+      <ion-row *ngFor="let content of contents">
+        <ion-col>
+          <div>
+            {{content.content}}
+          </div>
+        </ion-col>
+  
+        </ion-row>
+
+      </ion-grid>
+
+
+      <ion-grid>
+        <ion-label>Registered Students</ion-label>
+        <ion-row>
+          <ion-col>
+            <div>
+              Name
+            </div>
+          </ion-col>
+          <ion-col>
+            <div>
+              Detail
+            </div>
+          </ion-col>
+          </ion-row>
+    
+          <ion-row *ngFor="let student of students">
+            <ion-col>
+              <div>
+                {{ student.name }}
+              </div>
+            </ion-col>
+      
+            <ion-col>
+              <div>
+                <ion-router-link color="tertiary" href="admin/student/{{student.sid}}">Detail</ion-router-link>
+              </div>
+            </ion-col>
+
+            </ion-row>
+    
+          </ion-grid>
+
+
+          
+
+</ion-content>

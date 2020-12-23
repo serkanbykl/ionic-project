@@ -1,0 +1,173 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>detail-student</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="student">
+
+<ion-row>
+  <ion-col> <ion-item >
+    <ion-label>{{student.id}}</ion-label>
+  </ion-item>
+</ion-col>
+<ion-col >
+  
+ 
+  <ion-item >
+    <ion-label>{{student.name}}</ion-label>
+  </ion-item>
+</ion-col>
+
+
+<ion-col >
+  
+
+  <ion-item >
+    <ion-label>{{student.normalizedUserName}}</ion-label>
+  </ion-item>
+</ion-col>
+
+
+<ion-col >
+  
+  <ion-item >
+    <ion-label>{{student.password}}</ion-label>
+  </ion-item>
+</ion-col>
+
+
+
+<ion-col >
+  
+
+  <ion-item >
+    <ion-label>{{student.educationDetail}}</ion-label>
+  </ion-item>
+
+</ion-col>
+
+
+
+<ion-col >
+  
+  <ion-item >
+    <ion-label>{{student.personalDetail}}</ion-label>
+  </ion-item>
+</ion-col>
+
+</ion-row>
+
+
+
+<form [formGroup]="deleteForm" (ngSubmit)="onSubmit()">
+
+<ion-item>
+  <ion-label>Confirm</ion-label>
+  <ion-checkbox formControlName="check" id="check" color="Royal"></ion-checkbox>
+
+</ion-item>
+
+
+  <ion-button block color="primary" type="submit" [disabled]="deleteForm.invalid" (click)="deleteStudent(student.id)">
+    Delete
+  </ion-button>
+
+  {{delMessage}}
+
+</form>
+
+
+
+
+
+
+<ion-grid *ngIf="studentCourses.length>0">
+  <ion-row>
+    <ion-col>
+      <div>
+        scid
+      </div>
+    </ion-col>
+    <ion-col>
+      <div>
+        cid
+      </div>
+    </ion-col>
+    <ion-col>
+      <div>
+        cName
+      </div>
+    </ion-col>
+    <ion-col>
+      <div>
+        duration
+      </div>
+    </ion-col>
+    <ion-col>
+      <div>
+        course fees
+      </div>
+    </ion-col>
+    <ion-col>
+      <div>
+        remaining fees
+      </div>
+    </ion-col>
+
+    <ion-col>
+      <div>
+        update fees
+      </div>
+    </ion-col>
+
+
+  </ion-row>
+  <ion-row *ngFor="let course of studentCourses">
+    <ion-col>
+      <div>
+        {{course.scid}}
+      </div>
+    </ion-col>
+    <ion-col>
+      <div>{{course.cid}}
+      </div>
+    </ion-col>
+    <ion-col>
+      <div>
+        {{course.cName}}
+      </div>
+    </ion-col>
+    <ion-col>
+      <div>
+        {{course.duration}}
+            </div>
+    </ion-col>
+    <ion-col>
+      <div>{{course.feesCourse}}
+      </div>
+    </ion-col>
+
+        <ion-col>
+      <div>{{course.feesStudent}}
+      </div>
+    </ion-col>
+
+    <ion-col>
+
+
+      <ion-button (click)="openModal(course.scid,course.cid,course.feesStudent)">Update Fees</ion-button>
+
+
+
+
+      
+    </ion-col>
+
+  </ion-row>
+</ion-grid>
+
+
+
+
+</ion-content>

@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>my-courses</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+
+
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div>
+          Course ID
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          Course Name
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          Fees
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          Duration
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          Detail
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngFor="let course of courses">
+      <ion-col>
+        <div>
+          {{course.cid}}
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          {{course.cName}}
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          {{course.fees}}
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          {{course.duration}}
+        </div>
+      </ion-col>
+      <ion-col>
+        <ion-router-link color="tertiary" href="teacher/my-course/{{course.cid}}">Content</ion-router-link>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+
+
+
+
+</ion-content>

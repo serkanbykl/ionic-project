@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>detail-teacher</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <form [formGroup]="updateForm" (ngSubmit)="onUpdate($event, updateForm.value)">
+    <ion-item>
+      <ion-label position="floating">Teacher Name <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input required formControlName="name" type="text"></ion-input>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label position="floating">Teacher Username <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input required formControlName="username" type="text"></ion-input>
+    </ion-item>
+
+
+      <ion-item>
+        <ion-label position="floating">Teacher Password <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input required formControlName="password" type="text"></ion-input>
+      </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Teacher Education Detail <ion-text color="danger">*</ion-text></ion-label>
+          <ion-input required formControlName="educationDetail" type="text"></ion-input>
+        </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">Teacher Personal Detail <ion-text color="danger">*</ion-text></ion-label>
+            <ion-input required formControlName="personalDetail" type="text"></ion-input>
+          </ion-item>
+
+
+
+    <ion-button block color="primary" type="submit" [disabled]="updateForm.invalid">
+      Update
+    </ion-button>
+  </form>
+
+  <ion-item *ngIf="upMessage">
+    <ion-label>
+      {{upMessage}}
+    </ion-label>
+  </ion-item>
+
+
+
+  <form [formGroup]="deleteForm" (ngSubmit)="onDelete(deleteForm.value)">
+   
+    <ion-input class="ion-hide" required formControlName="id" type="text" readonly></ion-input>
+ 
+    <ion-item>
+      <ion-label>Confirm</ion-label>
+      <ion-checkbox formControlName="check"></ion-checkbox>
+    </ion-item>
+    <ion-button block color="primary" type="submit" [disabled]="deleteForm.invalid">
+      Delete
+    </ion-button>
+  </form>
+
+  <ion-item *ngIf="delMessage">
+    <ion-label>
+      {{delMessage}}
+    </ion-label>
+  </ion-item>
+
+
+</ion-content>
